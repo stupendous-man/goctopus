@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  zookeeper:
+    container_name: goctupus_zookeeper
+    ports:
+      - "2181:2181"
+    image: zookeeper
+
+  kafka:
+    container_name: goctupus_kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    image: wurstmeister/kafka
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+  kafkaconsumer:
+    container_name: goctupus_kafka_consumer
+    depends_on:
+      - kafka
+    image: go/kafka/consumer
+    environment:
+      KAFKA_PORT_9092_TCP_ADDR: kafka
+      KAFKA_PORT_9092_TCP_PORT: 9092
+
+  kafkaproducer:
+    container_name: goctupus_kafka_producer
+    depends_on:
+      - kafka
+      - kafkaconsumer
+    image: go/kafka/producer
+    environment:
+      KAFKA_PORT_9092_TCP_ADDR: kafka
+      KAFKA_PORT_9092_TCP_PORT: 9092
