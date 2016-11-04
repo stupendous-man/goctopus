@@ -1,0 +1,6 @@
+language: go
+
+go:
+  - 1.7
+
+script: go get github.com/stupendous-man/goctupus/kafka-producer && go get github.com/stupendous-man/goctupus/kafka-consumer
