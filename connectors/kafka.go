@@ -7,11 +7,11 @@ import (
 )
 
 type KafkaConnector struct {
-	kafkaURL   string
-	kafkaTopic string
+	KafkaURL   string
+	KafkaTopic string
 }
 
-func (kc *KafkaConnector) send(request RequestMessage) {
+func (kc *KafkaConnector) Send(request RequestMessage) {
 
 	producer, err := sarama.NewAsyncProducer([]string{kc.kafkaURL}, nil)
 
@@ -38,7 +38,7 @@ func (kc *KafkaConnector) send(request RequestMessage) {
 	producer.Input() <- msg
 }
 
-func (kc *KafkaConnector) receive() ResponseMessage {
+func (kc *KafkaConnector) Receive() ResponseMessage {
 
 	consumer, err := sarama.NewConsumer([]string{kc.kafkaURL}, nil)
 	if err != nil {
