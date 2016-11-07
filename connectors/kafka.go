@@ -13,12 +13,12 @@ type KafkaConnector struct {
 
 func (kc *KafkaConnector) Send(request RequestMessage) {
 
-	producer, err := sarama.NewAsyncProducer([]string{kc.kafkaURL}, nil)
+	producer, err := sarama.NewAsyncProducer([]string{kc.KafkaURL}, nil)
 
 	if err != nil {
 		//Retry a few times before going into panic
 		for retries := 1; retries <= 5; retries++ {
-			producer, err = sarama.NewAsyncProducer([]string{kc.kafkaURL}, nil)
+			producer, err = sarama.NewAsyncProducer([]string{kc.KafkaURL}, nil)
 
 			if err != nil {
 				time.Sleep(100 * time.Millisecond)
@@ -34,17 +34,17 @@ func (kc *KafkaConnector) Send(request RequestMessage) {
 	}()
 
 	// send  a message synchronously when send method is called
-	msg := &sarama.ProducerMessage{Topic: kc.kafkaTopic, Value: sarama.StringEncoder(request)}
+	msg := &sarama.ProducerMessage{Topic: kc.KafkaTopic, Value: sarama.StringEncoder(request)}
 	producer.Input() <- msg
 }
 
 func (kc *KafkaConnector) Receive() ResponseMessage {
 
-	consumer, err := sarama.NewConsumer([]string{kc.kafkaURL}, nil)
+	consumer, err := sarama.NewConsumer([]string{kc.KafkaURL}, nil)
 	if err != nil {
 		//Retry a few times before going into panic
 		for retries := 1; retries <= 5; retries++ {
-			consumer, err = sarama.NewConsumer([]string{kc.kafkaURL}, nil)
+			consumer, err = sarama.NewConsumer([]string{kc.KafkaURL}, nil)
 
 			if err != nil {
 				time.Sleep(100 * time.Millisecond)
@@ -61,7 +61,7 @@ func (kc *KafkaConnector) Receive() ResponseMessage {
 		}
 	}()
 
-	partitionConsumer, err := consumer.ConsumePartition(kc.kafkaTopic, 0, sarama.OffsetNewest)
+	partitionConsumer, err := consumer.ConsumePartition(kc.KafkaTopic, 0, sarama.OffsetNewest)
 	if err != nil {
 		panic(err)
 	}
@@ -76,5 +76,5 @@ func (kc *KafkaConnector) Receive() ResponseMessage {
 	// receive one message synchronously on each receive call of the KafkaConnector
 	msg := <-partitionConsumer.Messages()
 
-	return string(msg.Value())
+	return ResponseMessage(string(msg.Value))
 }
