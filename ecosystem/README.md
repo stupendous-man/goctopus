@@ -1,6 +1,10 @@
 # goctupus-ecosystem
 
-The goctupus-ecosystem is being developed as a scripted dockerized environment consisting of a number of containers that can be used to test the functionality of the goctupus framework.
+The goctupus-ecosystem is being developed as a scripted dockerized environment consisting of multiple containers that can be used to test the functionality of the goctupus framework.
+
+## Current List of Supported Integrations
+
+* Apache Kafka
 
 ## Instructions
 
