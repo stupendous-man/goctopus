@@ -4,26 +4,29 @@ The goctupus-ecosystem is being developed as a scripted dockerized environment c
 
 ## Instructions
 
-### Build goctupus/kafka docker image
+#### Build goctupus/kafka docker image
 
-```docker
+```bash
+cd kafka/broker/
 docker build -t goctupus/kafka .
 ```
 
-### Build go/kafka/producer docker image
+#### Build go/kafka/producer docker image
 
-```docker
+```bash
+cd kafka/producer/
 docker build -t go/kafka/producer .
 ```
 
-### Build go/kafka/consumer docker image
+#### Build go/kafka/consumer docker image
 
-```docker
+```bash
+cd kafka/consumer/
 docker build -t go/kafka/consumer .
 ```
 
-### Initiate goctupus-ecosystem environment
+#### Initiate goctupus-ecosystem environment
 
-```docker
+```bash
 docker-compose up
 ```
