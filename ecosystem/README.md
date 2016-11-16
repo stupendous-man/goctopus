@@ -15,18 +15,18 @@ cd kafka/broker/
 docker build -t goctupus/kafka .
 ```
 
-#### Build go/kafka/producer docker image
+#### Build goctupus/kafka/producer docker image
 
 ```bash
 cd kafka/producer/
-docker build -t go/kafka/producer .
+docker build -t goctupus/kafka/producer .
 ```
 
-#### Build go/kafka/consumer docker image
+#### Build goctupus/kafka/consumer docker image
 
 ```bash
 cd kafka/consumer/
-docker build -t go/kafka/consumer .
+docker build -t goctupus/kafka/consumer .
 ```
 
 #### Initiate goctupus-ecosystem environment
