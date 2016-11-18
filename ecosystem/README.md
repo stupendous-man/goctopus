@@ -8,6 +8,13 @@ The goctupus-ecosystem is being developed as a scripted dockerized environment c
 
 ## Instructions
 
+#### Build goctupus/mongo docker image
+
+```bash
+cd mongo/
+docker build -t goctupus/mongo .
+```
+
 #### Build goctupus/kafka docker image
 
 ```bash
