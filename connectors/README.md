@@ -5,3 +5,4 @@ The goctopus-connectors package is a pure Go client library for interfacing with
 ## Current List of Supported Integrations
 
 * Apache Kafka
+* NATS
