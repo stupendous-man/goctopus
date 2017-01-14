@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+//Created by crezam
 func main() {
 
 	conn := connectors.KafkaConnector{KafkaURL: os.Getenv("KAFKA_PORT_9092_TCP_ADDR") + ":" + os.Getenv("KAFKA_PORT_9092_TCP_PORT"), KafkaTopic: "topic"}

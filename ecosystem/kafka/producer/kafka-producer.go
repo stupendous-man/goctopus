@@ -1,5 +1,6 @@
 package main
 
+//TODO: Remove sarama dependency
 import (
 	"github.com/Shopify/sarama"
 	"log"

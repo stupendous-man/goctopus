@@ -11,6 +11,7 @@ type KafkaConnector struct {
 	KafkaTopic string
 }
 
+//Created by stupendous-man & crezam
 func (kc *KafkaConnector) Send(request RequestMessage) {
 
 	producer, err := sarama.NewAsyncProducer([]string{kc.KafkaURL}, nil)
