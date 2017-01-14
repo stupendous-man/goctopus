@@ -37,3 +37,9 @@ services:
     environment:
       KAFKA_PORT_9092_TCP_ADDR: kafka
       KAFKA_PORT_9092_TCP_PORT: 9092
+
+  mongo:
+    container_name: goctupus_mongo
+    ports:
+      - "27017:27017"
+    image: goctupus/mongo

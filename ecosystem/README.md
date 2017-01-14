@@ -5,6 +5,7 @@ The goctupus-ecosystem is being developed as a scripted dockerized environment c
 ## Current List of Supported Integrations
 
 * Apache Kafka
+* MongoDB
 
 ## Instructions
 
