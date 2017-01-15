@@ -1,8 +1,10 @@
 package main
 
 //TODO: Remove sarama dependency
+//TODO: Remove mgo dependency
 import (
 	"github.com/Shopify/sarama"
+	"gopkg.in/mgo.v2"
 	"log"
 	"os"
 	"os/signal"
@@ -64,6 +66,7 @@ func main() {
 	go func() {
 		for msg := range partitionConsumer.Messages() {
 			log.Printf("Consumed message offset :: %d | Value :: %s\n", msg.Offset, string(msg.Value))
+			processEvent(string(msg.Value))
 		}
 	}()
 
@@ -73,4 +76,56 @@ func main() {
 		break
 	}
 
+}
+
+//TODO: Expand processEvent logic
+//TODO: Send events back through the pipeline
+func processEvent(msg string) {
+	//TODO: Replace with call to Mongo API
+	mongoInsert(Event{msg, "kafka"})
+}
+
+//TODO: Replace with call to Mongo API
+func mongoInsert(event Event) {
+	//Establish session with Mongo server
+	session, err := mgo.Dial(os.Getenv("MONGO_PORT_27017_TCP_ADDR") + ":" + os.Getenv("MONGO_PORT_27017_TCP_PORT"))
+
+	if err != nil {
+		//Retry a few times before going into panic
+		log.Print(err)
+		for retries := 1; retries <= 5; retries++ {
+			log.Printf("Retrying Mongo connection. Attempt %d...", retries)
+			session, err = mgo.Dial("localhost")
+
+			if err != nil {
+				time.Sleep(100 * time.Millisecond)
+			} else {
+				break
+			}
+		}
+	}
+
+	if err != nil {
+		panic(err)
+	}
+
+	//Deferred function to close session
+	defer session.Close()
+
+	//Establish connection with database/collection
+	c := session.DB("goctupusdb").C("events")
+
+	//Insert document in database/collection
+	//TODO: Move to separate function taking document as input parameter
+	err = c.Insert(&event)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+//TODO: Expand event structure
+type Event struct {
+	Message string
+	Source  string
 }
