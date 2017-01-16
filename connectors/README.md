@@ -5,4 +5,9 @@ The goctopus-connectors package is a pure Go client library for interfacing with
 ## Current List of Supported Integrations
 
 * Apache Kafka
-* NATS
+* [NATS](http://nats.io/documentation/)  
+Lightweight cloud-native messaging system written in Go. Provides among other features:
+    * Pure pub-sub
+    * Auto pruning of subscribers
+    * Text based protocol (can Telnet)
+    * Event streaming
