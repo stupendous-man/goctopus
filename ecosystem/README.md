@@ -7,6 +7,11 @@ The goctupus-ecosystem is being developed as a scripted dockerized environment c
 * Apache Kafka
 * MongoDB
 
+## Current List of Dependencies
+
+* sarama
+* mgo
+
 ## Instructions
 
 #### Build goctupus/mongo docker image
