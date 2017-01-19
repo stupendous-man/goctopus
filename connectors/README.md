@@ -11,3 +11,5 @@ Lightweight cloud-native messaging system written in Go. Provides among other fe
     * Auto pruning of subscribers
     * Text based protocol (can Telnet)
     * Event streaming
+* [NSQ](http://nsq.io/overview/quick_start.html)  
+Distributed and decentralized topology with no SPOF, horizotaly scalable, primarily in-memory
