@@ -4,7 +4,13 @@ The goctupus-ecosystem is being developed as a scripted dockerized environment c
 
 ## Current List of Supported Integrations
 
+#### Message Brokers
+
 * Apache Kafka
+* NATS
+
+#### Databases
+
 * MongoDB
 
 ## Current List of Dependencies
@@ -19,6 +25,13 @@ The goctupus-ecosystem is being developed as a scripted dockerized environment c
 ```bash
 cd mongo/
 docker build -t goctupus/mongo .
+```
+
+#### Build goctupus/nats docker image
+
+```bash
+cd nats/
+docker build -t goctupus/nats .
 ```
 
 #### Build goctupus/kafka docker image

@@ -45,3 +45,9 @@ services:
     ports:
       - "27017:27017"
     image: goctupus/mongo
+
+  nats:
+      container_name: goctupus_nats
+      ports:
+        - "4222:4222"
+      image: goctupus/nats
