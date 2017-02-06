@@ -95,7 +95,7 @@ func mongoInsert(event Event) {
 		log.Print(err)
 		for retries := 1; retries <= 5; retries++ {
 			log.Printf("Retrying Mongo connection. Attempt %d...", retries)
-			session, err = mgo.Dial("localhost")
+			session, err = mgo.Dial(os.Getenv("MONGO_PORT_27017_TCP_ADDR") + ":" + os.Getenv("MONGO_PORT_27017_TCP_PORT"))
 
 			if err != nil {
 				time.Sleep(100 * time.Millisecond)
