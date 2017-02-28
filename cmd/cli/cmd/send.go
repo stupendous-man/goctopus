@@ -1,12 +1,20 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
 	"fmt"
+	"github.com/spf13/cobra"
 )
 
+type SendCmdOptions struct {
+	connector string
+	message   string
+}
+
 func init() {
+	o := &SendCmdOptions{}
 	RootCmd.AddCommand(sendCmd)
+	sendCmd.Flags().StringVar(&o.connector, "connector", "", "The connector id to send the message to")
+	sendCmd.Flags().StringVar(&o.connector, "message", "", "Message content")
 }
 
 var sendCmd = &cobra.Command{
