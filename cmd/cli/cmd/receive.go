@@ -5,8 +5,14 @@ import (
 	"fmt"
 )
 
+type ReceiveCmdOptions struct {
+	connector string
+}
+
 func init() {
+	o := &ReceiveCmdOptions{}
 	RootCmd.AddCommand(recCmd)
+	recCmd.Flags().StringVar(&o.connector, "connector", "", "The connector id to receive from")
 }
 
 var recCmd = &cobra.Command{
