@@ -3,4 +3,4 @@ language: go
 go:
   - 1.7
 
-script: go get github.com/stupendous-man/goctupus/ecosystem/kafka/producer && go get github.com/stupendous-man/goctupus/ecosystem/kafka/consumer
+script: go get github.com/stupendous-man/groketa/ecosystem/kafka/producer && go get github.com/stupendous-man/groketa/ecosystem/kafka/consumer
