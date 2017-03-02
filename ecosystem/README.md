@@ -1,6 +1,6 @@
-# groketa-ecosystem
+# goctopus-ecosystem
 
-The goctupus-ecosystem is being developed as a scripted dockerized environment consisting of multiple containers that can be used to test the functionality of the goctupus framework.
+The goctopus-ecosystem is being developed as a scripted dockerized environment consisting of multiple containers that can be used to test the functionality of the goctupus framework.
 
 ## Current List of Supported Integrations
 
@@ -20,42 +20,42 @@ The goctupus-ecosystem is being developed as a scripted dockerized environment c
 
 ## Instructions
 
-#### Build groketa/mongo docker image
+#### Build goctopus/mongo docker image
 
 ```bash
 cd mongo/
-docker build -t groketa/mongo .
+docker build -t goctopus/mongo .
 ```
 
-#### Build groketa/nats docker image
+#### Build goctopus/nats docker image
 
 ```bash
 cd nats/
-docker build -t groketa/nats .
+docker build -t goctopus/nats .
 ```
 
-#### Build groketa/kafka docker image
+#### Build goctopus/kafka docker image
 
 ```bash
 cd kafka/broker/
-docker build -t groketa/kafka .
+docker build -t goctopus/kafka .
 ```
 
-#### Build groketa/kafka/producer docker image
+#### Build goctopus/kafka/producer docker image
 
 ```bash
 cd kafka/producer/
-docker build -t groketa/kafka/producer .
+docker build -t goctopus/kafka/producer .
 ```
 
-#### Build groketa/kafka/consumer docker image
+#### Build goctopus/kafka/consumer docker image
 
 ```bash
 cd kafka/consumer/
-docker build -t groketa/kafka/consumer .
+docker build -t goctopus/kafka/consumer .
 ```
 
-#### Initiate groketa-ecosystem environment
+#### Initiate goctopus-ecosystem environment
 
 ```bash
 docker-compose up
