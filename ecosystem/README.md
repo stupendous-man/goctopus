@@ -1,6 +1,6 @@
 # goctopus-ecosystem
 
-The goctopus-ecosystem is being developed as a scripted dockerized environment consisting of multiple containers that can be used to test the functionality of the goctupus framework.
+The goctopus-ecosystem is being developed as a scripted dockerized environment consisting of multiple containers that can be used to test the functionality of the goctopus framework.
 
 ## Current List of Supported Integrations
 

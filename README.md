@@ -1,6 +1,6 @@
 # goctopus
 
-[![Build Status](https://travis-ci.org/stupendous-man/goctupus.svg?branch=master)](https://travis-ci.org/stupendous-man/goctupus)
+[![Build Status](https://travis-ci.org/stupendous-man/goctopus.svg?branch=master)](https://travis-ci.org/stupendous-man/goctopus)
 
 A minimalistic integration framework for go apps  
 

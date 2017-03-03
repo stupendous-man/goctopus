@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/stupendous-man/goctupus/connectors"
+	"github.com/stupendous-man/goctopus/connectors"
 	"log"
 	"os"
 )
