@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/stupendous-man/goctupus/cmd/cli/cmd"
+	"github.com/stupendous-man/goctopus/cmd/cli/cmd"
 )
 
 func main() {

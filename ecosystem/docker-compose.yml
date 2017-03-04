@@ -13,7 +13,7 @@ services:
       - zookeeper
     ports:
       - "9092:9092"
-    image: goctupus/kafka
+    image: goctopus/kafka
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ADVERTISED_PORT: 9092
@@ -23,7 +23,7 @@ services:
     container_name: goctupus_kafka_consumer
     depends_on:
       - kafka
-    image: goctupus/kafka/consumer
+    image: goctopus/kafka/consumer
     environment:
       KAFKA_PORT_9092_TCP_ADDR: kafka
       KAFKA_PORT_9092_TCP_PORT: 9092
@@ -35,7 +35,7 @@ services:
     depends_on:
       - kafka
       - kafkaconsumer
-    image: goctupus/kafka/producer
+    image: goctopus/kafka/producer
     environment:
       KAFKA_PORT_9092_TCP_ADDR: kafka
       KAFKA_PORT_9092_TCP_PORT: 9092
@@ -44,10 +44,10 @@ services:
     container_name: goctupus_mongo
     ports:
       - "27017:27017"
-    image: goctupus/mongo
+    image: goctopus/mongo
 
   nats:
       container_name: goctupus_nats
       ports:
         - "4222:4222"
-      image: goctupus/nats
+      image: goctopus/nats

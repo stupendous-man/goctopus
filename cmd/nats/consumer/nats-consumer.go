@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/nats-io/go-nats"
-	"github.com/stupendous-man/goctupus/connectors"
+	"github.com/stupendous-man/goctopus/connectors"
 	"log"
 )
 
